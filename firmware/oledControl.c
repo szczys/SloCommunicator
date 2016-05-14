@@ -237,18 +237,3 @@ void putDblChar(uint8_t x, uint8_t y, uint8_t charIdx) {
         oledWriteData(0x00);    //Space after each letter
     }
 }
-
-extern void oledSetPixel(uint8_t x, uint8_t y, uint8_t value) {
-    //normalize
-    if (x >= SCREENX) { x = SCREENX-1; }
-    if (y >= SCREENY) { y = SCREENY-1; }
-
-    //FIXME: Need to read value from screen so we don't overwrite other 7 bits of this location
-    uint8_t screenByte = 0x00;
-    if (value == ON) {
-        screenByte |= (1<<(y%8));
-    }
-
-    oledSetCursor(x, y/8);
-    oledWriteData(screenByte);
-}

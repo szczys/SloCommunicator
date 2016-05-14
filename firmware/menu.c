@@ -331,7 +331,7 @@ void playGame(void)
     doBack = &homeScreen;      //Set back button behavior
     knobPlaysGame();    //Setup Knob Behavior
     //Fill the selection function pointer arrays
-    oledSetPixel(ballX, ballY, ON);
+
 }
 
 /************************ Compose Screen Stuff *************************/
