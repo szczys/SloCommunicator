@@ -1,6 +1,8 @@
 SloCommunicator
 ======
 
+![Screen with Know and Home Etched Board](https://pbs.twimg.com/media/Cia4MJ1VEAEiZmg.jpg)
+
 Communicator watch built for 2016 Bring-a-Hack (end of Bay Area Maker Faire Weekend).
 
 This is based on the stalled [SloJak](https://github.com/szczys/SloJak) project. It is a 128x64 OLED screen with a rotary encoder and two buttons (actually 3 with encoder click but that's not designed into the board artwork).
