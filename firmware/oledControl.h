@@ -21,6 +21,9 @@
 
 #define PAGE_ADDRESSING		        	0x02
 
+#define OFF                             0x00
+#define ON                              0xFF
+
 uint8_t cursX;
 uint8_t cursY;
 
@@ -41,3 +44,4 @@ extern void showHighlighted(uint8_t x, uint8_t y);
 extern uint8_t findHighlighted(uint8_t curStart, uint8_t maxChar);
 extern uint8_t embiggen(uint8_t charSlice, uint8_t bottom);
 void putDblChar(uint8_t x, uint8_t y, uint8_t charIdx);
+extern void oledSetPixel(uint8_t x, uint8_t y, uint8_t value);

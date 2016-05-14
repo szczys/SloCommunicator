@@ -55,6 +55,11 @@ uint8_t totOptions, arrowOnLine, curTopOptionIdx;
 uint8_t charListStart = 0;
 #define CHARSETLEN  96  //How many characters does our fontfile have?
 
+/**************** Game variables *****************************/
+uint8_t ballX = 10;
+uint8_t ballY = 20;
+
+
 void initMenu(void)
 {
     //TODO: Drawing initial screen should be handled here
@@ -70,6 +75,12 @@ void knobScrollsAlphabet(void)
 {
     knobLeft = &slideAlphaLeft;
     knobRight = &slideAlphaRight;
+}
+
+void knobPlaysGame(void)
+{
+    knobLeft = 0;
+    knobRight = 0;
 }
 
 
@@ -158,7 +169,8 @@ void homeScreen(void)
     //Fill the selection function pointer arrays
     optionIndex = 0;
     doSelect[0] = &compose;     //List available messages to read
-    doSelect[1] = &msgList;  //Compose message
+    doSelect[1] = &msgList;     //Compose message
+    doSelect[2] = &playGame;    //Play a Game
 
     strcpy_P(tempStr, strTitleHome);
     showMenu(0, tempStr);
@@ -310,6 +322,17 @@ void msgList(void)
     //FIXME: Do Something
 }
 void msgDsp(void);
+
+/************************ Game Stuff Here ******************************/
+void playGame(void)
+{
+    oledClearScreen(1);
+
+    doBack = &homeScreen;      //Set back button behavior
+    knobPlaysGame();    //Setup Knob Behavior
+    //Fill the selection function pointer arrays
+    oledSetPixel(ballX, ballY, ON);
+}
 
 /************************ Compose Screen Stuff *************************/
 void slideAlphaLeft(void) {

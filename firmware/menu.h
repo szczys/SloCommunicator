@@ -17,6 +17,7 @@ extern void (*doSelect[6])(void);
 void initMenu(void);
 void knobNavigatesList(void);
 void knobScrollsAlphabet(void);
+void knobPlaysGame(void);
 void showArrow(uint8_t boolean);
 void drawDivider(uint8_t page);
 void showMenu(uint8_t defaultOption, char *titleString);
@@ -33,6 +34,7 @@ void confirmSend(void);
 void confirmCancel(void);
 void msgList(void);
 void msgDsp(void);
+void playGame(void);
 void slideAlphaLeft(void);
 void slideAlphaRight(void);
 
