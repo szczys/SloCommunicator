@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "oledControl.h"
+#include "game.h"
 #include "string.h"
 #include <util/delay.h>
 
@@ -331,7 +332,14 @@ void playGame(void)
     doBack = &homeScreen;      //Set back button behavior
     knobPlaysGame();    //Setup Knob Behavior
     //Fill the selection function pointer arrays
-
+    
+    gameInitBuffer();
+    gameSetMetaPixel(0,0,ON);
+    gameSetMetaPixel(1,1,ON);
+    gameSetMetaPixel(0,2,ON);
+    gameSetMetaPixel(3,3,ON);
+    gameSetMetaPixel(4,4,ON);
+    gameSetMetaPixel(63,31,ON);
 }
 
 /************************ Compose Screen Stuff *************************/
