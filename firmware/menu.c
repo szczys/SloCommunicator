@@ -16,16 +16,6 @@ char writeMsg[MAXMSGLEN] = "\0";
 #define MSGLIST         5
 #define MSGDISPLAY      6
 
-uint8_t const menuChoice[7][2] = {
-    { COMPOSE, COMPOSE },  //COMPOSE
-    { MSGLIST, COMPOSE },       //HOMESCREEN
-    { HOMESCREEN, COMPOSE },    //CANCELMSG
-    { HOMESCREEN, HOMESCREEN }, //SENDMSG
-    { HOMESCREEN, COMPOSE },    //CONFIRMSEND
-    { MSGDISPLAY, MSGDISPLAY }, //MSGLIST FIXME: up to 7 options here
-    { MSGDISPLAY, MSGDISPLAY }
-    };
-
 /**************** Menu Strings stored in PROGMEM ******************/
 const char strTitleHome[] PROGMEM = "Crappy Messager\0";
 const char strTitleSend[] PROGMEM = "Send Message?\0";
@@ -39,6 +29,7 @@ const char strOptRead[] PROGMEM = "Read Messages\0";
 const char strOptSend[] PROGMEM = "Send Messages\0";
 const char strOptBackComposer[] PROGMEM = "Edit Message\0";
 const char strOptDiscard[] PROGMEM = "Discard Message\0";
+const char strOptGame[] PROGMEM = "Play KnobSnake\0";
 
 //Set initial behavior as compose message
 uint8_t curMenu = COMPOSE;
@@ -180,7 +171,11 @@ void homeScreen(void)
     strcpy_P(tempStr, strOptRead);
     putOption(3, tempStr);
 
-    totOptions = 2;
+    //Game
+    strcpy_P(tempStr, strOptGame);
+    putOption(4, tempStr);
+
+    totOptions = 3;
 }
 
 void compose(void)
