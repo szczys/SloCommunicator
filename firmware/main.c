@@ -15,6 +15,7 @@
 
 #include "menu.h"
 #include "oledControl.h"
+#include "game.h"
 
 
 /************** Setup a rotary encoder ********************/
@@ -126,6 +127,11 @@ int main(void)
             }
             knobChange = 0;
         }
+        
+        if (game_running && move_tick) {
+            serviceGame();
+            move_tick = 0;
+        }
     }
 }
 
@@ -163,4 +169,8 @@ ISR(TIMER0_OVF_vect) {
     i &= ct0 & ct1;              // count until roll over ?
     key_state ^= i;              // then toggle debounced state
     key_press |= key_state & i;  // 0->1: key press detect
+    
+    if (++timingDelay >= 20) {
+        ++move_tick;
+    }
 }
