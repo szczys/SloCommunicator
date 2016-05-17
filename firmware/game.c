@@ -9,7 +9,6 @@ void gameInitBuffer(void) {
             buffer[page][col] = 0x00;
         }
     }
-    snake_init();
 }
 
 void gameSetMetaPixel(uint8_t x, uint8_t y, uint8_t status) {
@@ -260,7 +259,11 @@ uint8_t get_node_list_length(uint8_t node1, uint8_t node2) {
 }
 
 void startGame(void) {
-
+    oledClearScreen(1);
+    if (game_running == 0) {
+        gameInitBuffer();
+        snake_init();
+    }
 }
 
 void leaveGame(void) {

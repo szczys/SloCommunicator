@@ -320,13 +320,15 @@ void msgDsp(void);
 /************************ Game Stuff Here ******************************/
 void playGame(void)
 {
-    oledClearScreen(1);
-
     doBack = &leaveGame;      //Set back button behavior
+    
+    optionIndex = 0;
+    doSelect[0] = &startGame;
+    
     knobPlaysGame();    //Setup Knob Behavior
     //Fill the selection function pointer arrays
     
-    gameInitBuffer();
+    startGame();
 }
 
 /************************ Compose Screen Stuff *************************/
