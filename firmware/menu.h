@@ -7,6 +7,10 @@
 extern uint8_t optionIndex;
 extern uint8_t curMenu;
 
+extern const char strOptGameOver[];
+
+char tempStr[20];
+
 /**************** Function pointers for menu items ****************/
 extern void (*knobLeft)(void);
 extern void (*knobRight)(void);

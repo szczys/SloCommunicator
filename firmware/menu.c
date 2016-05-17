@@ -31,6 +31,7 @@ const char strOptSend[] PROGMEM = "Send Messages\0";
 const char strOptBackComposer[] PROGMEM = "Edit Message\0";
 const char strOptDiscard[] PROGMEM = "Discard Message\0";
 const char strOptGame[] PROGMEM = "Play KnobSnake\0";
+const char strOptGameOver[] PROGMEM = "Game Over\0";
 
 //Set initial behavior as compose message
 uint8_t curMenu = COMPOSE;
@@ -46,9 +47,6 @@ void (*doSelect[6])(void) = {
     &homeScreen,
     &homeScreen
     };
-
-
-char tempStr[20];
 
 uint8_t totOptions, arrowOnLine, curTopOptionIdx;
 

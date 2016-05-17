@@ -1,6 +1,7 @@
 #include <avr/io.h>
 #include "game.h"
 #include "oledControl.h"
+#include "menu.h"
 
 void gameInitBuffer(void) {
     for (uint8_t page=0; page<4; page++) {
@@ -105,8 +106,9 @@ uint8_t ate_fruit(uint8_t x, uint8_t y)
 
 void game_over(void)
 {
-  //TODO: Game over message
-  game_running = 0;
+    strcpy_P(tempStr, strOptGameOver);
+    putString(32,3,tempStr,0);
+    game_running = 0;
 }
 
 void move_head(uint8_t new_dir)
