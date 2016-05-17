@@ -47,25 +47,33 @@ void gameSetMetaPixel(uint8_t x, uint8_t y, uint8_t status) {
 
 void change_direction(void)
 {
-  switch (change_dir) {
-    case 1:
-      dirX = -1;
-      dirY = 0;
-      break;
-    case 2:
-      dirX = 0;
-      dirY = -1;
-      break;
-    case 3:
-      dirX = 1;
-      dirY = 0;
-      break;
-    case 4:
-      dirX = 0;
-      dirY = 1;
-      break;
-  }
-  change_dir = 0;
+    //Direction cheat sheet:
+    //  -1 == left or up
+    //  0 == no movement
+    //  1 == right or down
+    
+    // Account for current X, current Y, and C or CC knob movement
+    if (dirX != 0) {
+        //Currently moving left or right
+        if (change_dir > 0) { dirY = 0-dirX; }
+        else { dirY = dirX; }
+        dirX = 0;
+    }
+    else {
+        //Currently moving up or down
+        if (change_dir < 0) { dirX = 0-dirY; }
+        else { dirX = dirY; }
+        dirY = 0;
+    }
+    change_dir = 0;
+}
+
+void snakeCounterClockwise(void) {
+    change_dir = -1;
+}
+
+void snakeClockwise(void) {
+    change_dir = 1;
 }
 
 uint8_t absolute_difference(uint8_t a, uint8_t b)

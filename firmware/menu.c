@@ -80,8 +80,8 @@ void knobScrollsAlphabet(void)
 
 void knobPlaysGame(void)
 {
-    knobLeft = 0;
-    knobRight = 0;
+    knobLeft = &snakeCounterClockwise;
+    knobRight = &snakeClockwise;
 }
 
 

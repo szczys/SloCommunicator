@@ -170,7 +170,10 @@ ISR(TIMER0_OVF_vect) {
     key_state ^= i;              // then toggle debounced state
     key_press |= key_state & i;  // 0->1: key press detect
     
-    if (++timingDelay >= 20) {
+    static uint8_t delayCount = STD_DELAY/10;   //This is a red herring. delayCount should be exposed to game.c
+    
+    if (++timingDelay >= delayCount) {
+        timingDelay = 0;
         ++move_tick;
     }
 }

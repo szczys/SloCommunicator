@@ -3,6 +3,8 @@
 #define GAMEBOARD_X   64
 #define GAMEBOARD_Y   32
 
+#define STD_DELAY       1000    //Tick delay (in milliseconds)
+
 uint8_t buffer[4][64];
 
 extern void gameInitBuffer(void);
@@ -23,7 +25,7 @@ point corners[MAX_NODES];
 int8_t dirY;
 int8_t dirX;
 point fruit;
-uint8_t change_dir;
+int8_t change_dir;
 
 //Variables
 static volatile uint32_t timingDelay;
@@ -31,6 +33,8 @@ volatile uint8_t move_tick;
 
 //Prototypes
 void change_direction(void);
+void snakeCounterClockwise(void);
+void snakeClockwise(void);
 uint8_t absolute_difference(uint8_t a, uint8_t b);
 uint8_t neighbors(point node1, point node2);
 void make_fruit(void);
