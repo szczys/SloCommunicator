@@ -50,6 +50,8 @@ void snake_init(void);
 uint8_t get_next_node(uint8_t thisNode);
 uint8_t get_previous_node(uint8_t thisNode);
 uint8_t get_node_list_length(uint8_t node1, uint8_t node2);
+extern void startGame(void);
+extern void leaveGame(void);
 extern void serviceGame(void);
 
 #endif

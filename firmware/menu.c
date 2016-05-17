@@ -54,11 +54,6 @@ uint8_t totOptions, arrowOnLine, curTopOptionIdx;
 uint8_t charListStart = 0;
 #define CHARSETLEN  96  //How many characters does our fontfile have?
 
-/**************** Game variables *****************************/
-uint8_t ballX = 10;
-uint8_t ballY = 20;
-
-
 void initMenu(void)
 {
     //TODO: Drawing initial screen should be handled here
@@ -327,7 +322,7 @@ void playGame(void)
 {
     oledClearScreen(1);
 
-    doBack = &homeScreen;      //Set back button behavior
+    doBack = &leaveGame;      //Set back button behavior
     knobPlaysGame();    //Setup Knob Behavior
     //Fill the selection function pointer arrays
     

@@ -259,6 +259,15 @@ uint8_t get_node_list_length(uint8_t node1, uint8_t node2) {
   else return node2+(MAX_NODES-node1)+1;    //Adding 1 to adjust for 0 index
 }
 
+void startGame(void) {
+
+}
+
+void leaveGame(void) {
+    game_running = 0;
+    homeScreen();
+}
+
 void serviceGame(void) {
     move_head(change_dir);
     if (ate_fruit(corners[head].x,corners[head].y))
