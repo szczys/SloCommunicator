@@ -2,6 +2,7 @@
 #include "game.h"
 #include "oledControl.h"
 #include "menu.h"
+#include <stdlib.h>
 
 void gameInitBuffer(void) {
     for (uint8_t page=0; page<4; page++) {
@@ -89,12 +90,11 @@ uint8_t neighbors(point node1, point node2)
 }
 
 void make_fruit(void) {
-    /*
   fruit.x = (uint8_t)(rand()%(GAMEBOARD_X));
   fruit.y = (uint8_t)(rand()%(GAMEBOARD_Y));
   //TODO: Make sure fruit isn't overlapping the snake.
-  Draw_Box(fruit.x*SNAKE_GIRTH,fruit.y*SNAKE_GIRTH,(fruit.x*SNAKE_GIRTH)+SNAKE_GIRTH-1,(fruit.y*SNAKE_GIRTH)+SNAKE_GIRTH-1,FRUIT_COLOR);
-    */
+  gameSetMetaPixel(fruit.x, fruit.y, ON);
+  //Draw_Box(fruit.x*SNAKE_GIRTH,fruit.y*SNAKE_GIRTH,(fruit.x*SNAKE_GIRTH)+SNAKE_GIRTH-1,(fruit.y*SNAKE_GIRTH)+SNAKE_GIRTH-1,FRUIT_COLOR);
 }
 
 uint8_t ate_fruit(uint8_t x, uint8_t y)
@@ -218,8 +218,8 @@ void snake_init(void)
 
     ++game_running;
     //TODO: implement RAND for fruit generation
-    //srand((uint16_t)SysTick->VAL);
-    //make_fruit();
+    srand(TCNT0);
+    make_fruit();
 }
 
 /*--------------------------------------------------------------------------

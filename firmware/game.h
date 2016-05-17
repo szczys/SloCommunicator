@@ -6,7 +6,7 @@
 #define GAMEBOARD_X   64
 #define GAMEBOARD_Y   32
 
-#define STD_DELAY       1000    //Tick delay (in milliseconds)
+#define STD_DELAY       180    //Tick delay (in milliseconds)
 
 uint8_t buffer[4][64];
 
